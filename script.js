@@ -6,6 +6,7 @@ let GanhoPorClick = 1
 function AtualizarLocalStorage() {
     ClickerViewer.innerText = `Clicks: ${ClickerTotal}`
     localStorage.setItem("ClickerSave", ClickerTotal)
+    localStorage.setItem("UpgradesOwned", JSON.stringify(UpgradesList.filter(Ups => Ups.Owned == true).map(Ups => Ups.NameUp)))
 }
 
 if (localStorage.getItem("ClickerSave")) {
