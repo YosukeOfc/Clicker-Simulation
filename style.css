@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.conteudo {
+    height: 100vh;
+    margin-top: 30%;
+}
+
+.ClickerViewer {
+    font-size: 22px;
+}
+
+.information {
+    text-align: center;
+}
+
+.ClickHere {
+    padding: 10px;
+    border: 1px solid black;
+    margin-top: 10px;
+    text-decoration: none;
+    user-select: none;
+    cursor: pointer;
+    background: #cfcfcf;
+    transition: transform 0.1s ease-in-out;
+}
+
+.ClickHere:active {
+    transform: scale(0.95);
+}
+
+.Upgrades {
+    margin-top: 20px;
+    display: flex;
+}
+
+.CardUp {
+    padding: 20px;
+    border: 1px solid rgb(153, 153, 153);
+    border-radius: 10px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.CardUp:hover {
+    border: 1px solid rgb(0, 0, 0);
+    cursor: pointer;
+}
