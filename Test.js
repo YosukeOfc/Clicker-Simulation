@@ -1,5 +1,5 @@
 const Json = [
-    {
+     {
         NameUp: "Up1",
         Cost: 20,
         Owned: true,
@@ -36,4 +36,9 @@ const Json = [
 //     .filter(Ups => Ups.Owned == true)
 //     .map(Ups => Ups.NameUp)
 
-localStorage.setItem("Test", JSON.stringify(Json.filter(Ups => Ups.Owned == true).map(Ups => Ups.NameUp)))
+// console.log(UpgradesOwned)
+
+// localStorage.setItem("Test", JSON.stringify(Json.filter(Ups => Ups.Owned == true).map(Ups => Ups.NameUp)))
+
+
+

@@ -9,6 +9,37 @@ function AtualizarLocalStorage() {
     localStorage.setItem("UpgradesOwned", JSON.stringify(UpgradesList.filter(Ups => Ups.Owned == true).map(Ups => Ups.NameUp)))
 }
 
+function ResetarTudo() {
+    ClickerTotal = 0;
+    localStorage.setItem("UpgradesOwned", [])
+    window.location.reload()
+}
+
+
+function ConfigGame() {
+    const savedUpgrades = localStorage.getItem("UpgradesOwned");
+    
+    if (savedUpgrades) {
+        const ownedNames = JSON.parse(savedUpgrades);
+        
+        UpgradesList.forEach(upgrade => {
+            if (ownedNames.includes(upgrade.NameUp)) {
+                const Indice = upgrade.id
+                upgrade.Owned = true;
+                // Aplica o benefício do upgrade novamente ao carregar
+                GanhoPorClick += upgrade.EarnCookieClicker;
+
+                upgrade.splice(Indice, 1)
+            }
+
+
+        });
+    }
+}
+
+ConfigGame()
+
+
 if (localStorage.getItem("ClickerSave")) {
     ClickerViewer.innerText = `Clicks: ${localStorage.getItem("ClickerSave")}`
     ClickerTotal = parseInt(localStorage.getItem("ClickerSave"))
@@ -44,6 +75,7 @@ UpgradesList.forEach(el =>{
         if (el.Buy()) {
             AtualizarLocalStorage()
             console.log(`Item comprado: ${el.NameUp}`)
+            Card.remove()
         } else {
             console.log(`Não foi possivel comprar o seguinte item: ${el.NameUp}`)
         }
