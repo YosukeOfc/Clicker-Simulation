@@ -10,7 +10,7 @@ function AtualizarLocalStorage() {
 }
 
 function ResetarTudo() {
-    ClickerTotal = 0;
+    localStorage.setItem("ClickerSave", 0)
     localStorage.setItem("UpgradesOwned", [])
     window.location.reload()
 }
@@ -18,18 +18,16 @@ function ResetarTudo() {
 
 function ConfigGame() {
     const savedUpgrades = localStorage.getItem("UpgradesOwned");
-    
+
     if (savedUpgrades) {
         const ownedNames = JSON.parse(savedUpgrades);
-        
+
         UpgradesList.forEach(upgrade => {
             if (ownedNames.includes(upgrade.NameUp)) {
                 const Indice = upgrade.id
                 upgrade.Owned = true;
                 // Aplica o benefício do upgrade novamente ao carregar
                 GanhoPorClick += upgrade.EarnCookieClicker;
-
-                upgrade.splice(Indice, 1)
             }
 
 
@@ -52,7 +50,7 @@ setInterval(() => {
     localStorage.setItem("ClickerSave", ClickerTotal)
 }, 1000);
 
-function EarnClicker() { 
+function EarnClicker() {
     ClickerTotal += GanhoPorClick
 
     ClickerViewer.innerText = `Clicks: ${ClickerTotal}`
@@ -61,15 +59,33 @@ function EarnClicker() {
 
 // Render
 
-UpgradesList.forEach(el =>{
+UpgradesList.forEach(el => {
+
+    if (el.Owned) return;
+
     const Card = document.createElement("div")
     Card.classList.add("CardUp")
 
+    Card.addEventListener("mouseover", (e)=>{
+        e.target.style.backgroundColor = "yellow";
+        console.log(e.target.style.backgroundColor)
+        console.log(e)
+    })
+    
+    Card.addEventListener("mouseout", (e)=>{
+        e.target.style.backgroundColor = "";
+        console.log(e.target.style.backgroundColor)
+        console.log(e)
+    })
+
     const pUp = document.createElement("p")
     pUp.innerText = `${el.NameUp}`
+    pUp.classList.add("btn-Upgrade")
 
-    UpgradesDiv.appendChild(Card)
     Card.appendChild(pUp)
+    UpgradesDiv.appendChild(Card)
+    
+
 
     Card.addEventListener("click", () => {
         if (el.Buy()) {
