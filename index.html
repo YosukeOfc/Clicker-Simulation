@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clicker Simulation</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -13,34 +13,36 @@
     <div class="container">
         <div class="conteudo">
             <div class="information">
+                <!-- Aqui será renderizado o visual do clicker -->
                 <p id="ClickerViewer" class="ClickerViewer"></p>
-
                 <button class="ClickHere" id="ClickHere" onclick="EarnClicker()">Clique em mim</button>
             </div>
 
             <div class="Upgrades" id="Upgrades">
                 <!-- Aqui será renderizado os Upgrades -->
-                <!-- <div class="DivModalUp">
-                    <p>Titulo</p>
-                    <br>
-                    <p>custo</p>
-                    <p>Desc</p>
-                </div>
-
-                <div class="CardUp">
-                    <p class="btn-Upgrade">Lápis</p>
-                </div> -->
             </div>
 
-            <div id="Reset">
+            <div class="Reset-Div">
                 <!-- Aqui será renderizado o botão de Reset -->
-                <button class="Reset" onclick="ResetarTudo()">Resetar</button>
+                <button class="Reset" id="Reset" onclick="ResetarTudo()">Resetar</button>
+            </div>
+
+            <div class="ViewOwnedUps-Div">
+                <!-- Aqui será renderizado o botão de ver os Upgrades Possuídos -->
+                <button class="ViewOwnedUps" id="ViewOwnedUps" onclick="ViewOwnedUpgrades()">Upgrades</button>
             </div>
         </div>
     </div>
 
-    <script src="json.js"></script>
-    <script src="script.js" defer></script>
+    <div class="Upgrades-ToolTips-Div" id="Upgrade-ToolTip" style="display: none; position: absolute;">
+        <!-- Aqui será renderizado o ToolTip/Modal -->
+        <h3 id="ToolTip-Title"></h3>
+        <p id="ToolTip-Description"></p>
+        <p id="ToolTip-Cost"></p>
+    </div>
+
+    <script src="./js/json.js"></script>
+    <script src="./js/script.js" defer></script>
 </body>
 
 </html>

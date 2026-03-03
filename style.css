@@ -10,20 +10,34 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    width: 100%;
+
+
+    & .conteudo {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        & .ClickerViewer {
+            font-size: 22px;
+        }
+
+        & .information {
+            text-align: center;
+        }
+
+        & .Reset-Div {
+            position: absolute;
+            bottom: 20px;
+        }
+    }
 }
 
-.conteudo {
-    height: 100vh;
-    margin-top: 30%;
-}
 
-.ClickerViewer {
-    font-size: 22px;
-}
-
-.information {
-    text-align: center;
-}
 
 .ClickHere,
 .Reset {
@@ -35,6 +49,14 @@
     cursor: pointer;
     background: #cfcfcf;
     transition: transform 0.1s ease-in-out;
+}
+
+.ClickHere2,
+.Reset2 {
+    font-size: 24px;
+    background-color: #555555;
+    border-radius: 15px;
+    color: rgb(250, 232, 133);
 }
 
 .ClickHere:active {
@@ -59,15 +81,25 @@
     }
 }
 
-.DivModalUp {
-    padding: 20px;
-    border: 1px solid rgb(153, 153, 153);
-    border-radius: 10px;
-    text-align: center;
-    margin-right: 10px;
+.Upgrades-ToolTips-Div {
+    background: #333;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid gold;
+    pointer-events: none;
+    /* Evita que o mouse "tome susto" ao tocar no modal */
+    z-index: 1000;
+    width: 200px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 
-    &:hover {
-        border: 1px solid rgb(0, 0, 0);
-        cursor: pointer;
+    & h3 {
+        font-size: 18px;
+        margin-bottom: 5px;
+        color: gold;
+    }
+
+    & p {
+        font-size: 14px;
     }
 }

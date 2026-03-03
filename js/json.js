@@ -25,11 +25,11 @@ class Upgrades {
 }
 
 const UpgradesList = [
-    new Upgrades("Lápis", 10, "IDK", 1),
-    new Upgrades("The Binding of Isaac", 100, "IDK", 10),
-    new Upgrades("Botão Bonito", 1, "IDK", 9999),
-    new Upgrades("Johnny Gay", 10000, "IDK", 99999),
-    new Upgrades("Johnny Muito Gay", 10000, "IDK", 9999999),
+    new Upgrades("Lápis", 1, "Um lápis bem apontado. Aumenta +1 por clique.", 1),
+    new Upgrades("The Binding of Isaac", 1, "Lágrimas que valem ouro. Aumenta +10 por clique.", 10),
+    new Upgrades("Botão Bonito", 1, "Um botão bonito. Atualiza o botão.", 5),
+    new Upgrades("Johnny Gay", 1, "Johnny é muito gay. Aumenta +99999 por clique.", 1000),
+    new Upgrades("Johnny Muito Gay", 1, "Johnny é muito muito gay mesmo. Aumenta +9999999 por clique.", 99999),
 ]
 
 
