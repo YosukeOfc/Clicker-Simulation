@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Isaac Cards</title>
+
+	<style>
+		body {
+			background: #1a1a1a;
+			font-family: Arial;
+			display: flex;
+			gap: 20px;
+			padding: 40px;
+		}
+
+		.card {
+			width: 180px;
+			background: #2a2a2a;
+			border-radius: 10px;
+			overflow: hidden;
+			box-shadow: 0 0 10px #000;
+			transition: 0.2s;
+		}
+
+		.card:hover {
+			transform: scale(1.05);
+		}
+
+		.card img {
+			width: 100%;
+		}
+
+		.card-content {
+			padding: 10px;
+			color: white;
+		}
+
+		.card-title {
+			font-weight: bold;
+			font-size: 18px;
+		}
+
+		.card-desc {
+			font-size: 14px;
+			opacity: 0.8;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div class="card">
+		<img src="https://bindingofisaacrebirth.wiki.gg/images/3/3b/The_Fool_card.png">
+		<div class="card-content">
+			<div class="card-title">The Fool</div>
+			<div class="card-desc">
+				Teleporta Isaac para a sala inicial.
+			</div>
+		</div>
+	</div>
+
+	<div class="card">
+		<img src="https://bindingofisaacrebirth.wiki.gg/images/7/7f/The_Sun_card.png">
+		<div class="card-content">
+			<div class="card-title">The Sun</div>
+			<div class="card-desc">
+				Revela o mapa inteiro e cura o jogador.
+			</div>
+		</div>
+	</div>
+
+	<div class="card">
+		<img src="https://bindingofisaacrebirth.wiki.gg/images/d/d1/Chaos_Card.png">
+		<div class="card-content">
+			<div class="card-title">Chaos Card</div>
+			<div class="card-desc">
+				Mata instantaneamente qualquer inimigo atingido.
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

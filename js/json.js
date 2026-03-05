@@ -1,11 +1,12 @@
 class Upgrades {
     static ProxId = 0
 
-    constructor(NameUp, Cost, Desc, EarnCookieClicker) {    
+    constructor({ NameUp, Cost, Desc, EarnCookieClicker, onBuy = null }) {
         this.NameUp = NameUp;
         this.Cost = Cost;
         this.Desc = Desc;
         this.EarnCookieClicker = EarnCookieClicker;
+        this.onBuy = onBuy;
         this.Owned = false
         this.id = Upgrades.ProxId
         Upgrades.ProxId++
@@ -17,6 +18,8 @@ class Upgrades {
             GanhoPorClick += this.EarnCookieClicker;
             this.Owned = true;
 
+            this.onBuy?.();
+
             AtualizarLocalStorage()
             return true;
         }
@@ -25,13 +28,76 @@ class Upgrades {
 }
 
 const UpgradesList = [
-    new Upgrades("Lápis", 1, "Um lápis bem apontado. Aumenta +1 por clique.", 1),
-    new Upgrades("The Binding of Isaac", 1, "Lágrimas que valem ouro. Aumenta +10 por clique.", 10),
-    new Upgrades("Botão Bonito", 1, "Um botão bonito. Atualiza o botão.", 5),
-    new Upgrades("Johnny Gay", 1, "Johnny é muito gay. Aumenta +99999 por clique.", 1000),
-    new Upgrades("Johnny Muito Gay", 1, "Johnny é muito muito gay mesmo. Aumenta +9999999 por clique.", 99999),
-]
+    new Upgrades({
+        NameUp: "Lápis",
+        Cost: 1,
+        Desc: "Um lápis bem apontado.",
+        EarnCookieClicker: 1,
+        // Sem onBuy aqui, ele ignora o if -- Exemplo
+    }),
 
+    new Upgrades({
+        NameUp: "The Binding of Isaac",
+        Cost: 1,
+        Desc: "Lágrimas que valem ouro.",
+        EarnCookieClicker: 10,
+
+        // https://printfoursouls.com/
+        onBuy: () => {
+            const jaTocou = localStorage.getItem("IsaacSoundPlayed");
+
+            if (!jaTocou) {
+                const audio = new Audio('./src/audios/rebirth_item_pickup_1.mp3');
+                
+                const h1 = document.createElement('h1')
+                h1.className = "IsaacFont TextHealthUp2"
+                h1.innerHTML = "TEARS UP !" // Ou textContent
+
+                const body = document.getElementById("Body")
+                
+                body.appendChild(h1)
+                audio.play();
+
+                setInterval(()=>{
+                    h1.remove()
+                }, 1000)
+                localStorage.setItem("IsaacSoundPlayed", "true");
+            }
+
+        }
+    }),
+
+    new Upgrades({
+        NameUp: "Botão Bonito",
+        Cost: 1,
+        Desc: "Atualiza o botão.",
+        EarnCookieClicker: 5,
+        onBuy: () => {
+            const ClickHere = document.getElementById("ClickHere")
+            const ResetBTN = document.getElementById("Reset")
+
+            ClickHere.classList.add("ClickHere2")
+            ResetBTN.classList.add("Reset2")
+        }
+    }),
+
+    new Upgrades({
+        NameUp: "Johnny Gay",
+        Cost: 1,
+        Desc: "Aumenta +99999 por clique.",
+        EarnCookieClicker: 1000
+    }),
+
+    new Upgrades({
+        NameUp: "Johnny Muito Gay",
+        Cost: 1,
+        Desc: "Aumenta +9999999 por clique.",
+        EarnCookieClicker: 99999,
+        onBuy: () => {
+            alert("Johnny atingiu o nível máximo!");
+        }
+    })
+];
 
 
 

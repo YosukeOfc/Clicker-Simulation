@@ -1,3 +1,28 @@
+@font-face {
+    font-family: 'IsaacFont';
+    src: url('./src/fonts/upheavtt.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.IsaacFont {
+    font-family: "IsaacFont";
+    font-size: 59px;
+    letter-spacing: 1.3px;
+}
+
+.TextHealthUp2 {
+    position: absolute;
+    left: 50%;
+    top: 6%;
+    transform: translate(-50%);
+}
+
+
+
+/* Código do conteudo */
+
 * {
     margin: 0;
     padding: 0;

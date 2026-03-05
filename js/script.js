@@ -8,6 +8,7 @@ const TooltipCost = document.getElementById("ToolTip-Cost")
 let ClickerTotal = 0
 let GanhoPorClick = 1
 
+
 // Função que atualiza o localStorage e o display dos clicks
 function AtualizarLocalStorage() {
     ClickerViewer.innerText = `Clicks: ${ClickerTotal}`
@@ -19,6 +20,8 @@ function AtualizarLocalStorage() {
 function ResetarTudo() {
     localStorage.setItem("ClickerSave", 0)
     localStorage.setItem("UpgradesOwned", [])
+    localStorage.removeItem("IsaacSoundPlayed")
+
     window.location.reload()
 }
 
@@ -34,25 +37,14 @@ function ConfigGame() {
                 upgrade.Owned = true;
                 // Aplica o benefício do upgrade novamente ao carregar
                 GanhoPorClick += upgrade.EarnCookieClicker;
+
+                upgrade.onBuy?.();
             }
         });
     }
 }
 ConfigGame()
 
-// Para mudar aspectos do game baseado nos upgrades comprados
-function VerificarUpgrades() {
-    const saved = localStorage.getItem("UpgradesOwned");
-    const UpgradesOwned = saved ? JSON.parse(saved) : [];
-    const ClickHere = document.getElementById("ClickHere")
-    const ResetBTN = document.getElementById("Reset")
-
-    if(UpgradesOwned.includes(2)) {
-        ClickHere.classList.add("ClickHere2")
-        ResetBTN.classList.add("Reset2")
-    }
-}
-VerificarUpgrades()
 
 // Verifica se existe um save, se sim, carrega o progresso, se não, cria um novo save
 if (localStorage.getItem("ClickerSave")) {
@@ -119,7 +111,6 @@ UpgradesList.forEach(el => {
     Card.addEventListener("click", () => {
         if (el.Buy()) {
             AtualizarLocalStorage()
-            VerificarUpgrades()
             console.log(`Item comprado: ${el.NameUp}`)
             Card.remove()
             TooltipDiv.style.display = "none";
@@ -138,10 +129,27 @@ UpgradesList.forEach(el => {
 
 //     const ownedDiv = document.createElement("div");
 //     ownedDiv.classList.add("OwnedUpgradesDiv");
+
 //     ownedUpgrades.forEach(upgrade => {
 //         const p = document.createElement("p");
-//         p.innerText = upgrade.NameUp;
-//         ownedDiv.appendChild(p);
+//         p.className = "Testando"
+//         p.innerHTML = upgrade.NameUp;
+//         ownedDiv.appendChild(p);    
+//         console.log("Adicionado")
 //     });
-//     document.body.appendChild(ownedDiv);
+
+
+//     const body = document.getElementById("Body")
+//     body.appendChild(ownedDiv);
 // }
+
+
+/* 
+
+-- DEBUGADO!
+
+Os "P" estão sendo criado no body, porem ele sai da tela, o overflow impede isso.
+Ou achar um jeito de tirar esse overflow e nao aparecer o rolar pagina, ou usar position.
+
+
+*/
