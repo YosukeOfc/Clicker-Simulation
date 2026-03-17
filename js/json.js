@@ -51,16 +51,22 @@ const UpgradesList = [
                 
                 const h1 = document.createElement('h1')
                 h1.className = "IsaacFont TextHealthUp2"
-                h1.innerHTML = "TEARS UP !" // Ou textContent
+                h1.innerHTML = "DAMAGE UP !" // Ou textContent
 
-                const body = document.getElementById("Body")
+                const imga = document.createElement("img")
+                imga.src = "./src/image/sacred-heart.png"
+                imga.alt = "sacred heart"
+
+                const body = document.body
                 
                 body.appendChild(h1)
+                body.appendChild(imga)
                 audio.play();
 
-                setInterval(()=>{
+                setTimeout(()=>{
                     h1.remove()
-                }, 1000)
+                    imga.remove()
+                }, 2000)
                 localStorage.setItem("IsaacSoundPlayed", "true");
             }
 

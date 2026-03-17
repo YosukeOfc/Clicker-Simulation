@@ -84,8 +84,6 @@ UpgradesList.forEach(el => {
     // Evento: Mouse entrou no Card
     Card.addEventListener("mouseenter", (e) => {
         e.target.style.backgroundColor = "yellow";
-        //console.log(e.target.style.backgroundColor)
-        //console.log(e)
 
         TooltipDiv.style.display = "block";
         TooltipTitle.innerText = el.NameUp;
@@ -102,8 +100,6 @@ UpgradesList.forEach(el => {
     // Evento: Mouse saiu
     Card.addEventListener("mouseleave", (e) => {
         e.target.style.backgroundColor = "";
-        //console.log(e.target.style.backgroundColor)
-        //console.log(e)
         TooltipDiv.style.display = "none";
     });
 
@@ -121,27 +117,27 @@ UpgradesList.forEach(el => {
 })
 
 /*Deixei essa função em comentário, porque não está funcionando ainda*/
-// function ViewOwnedUpgrades() {
-//     const saved = localStorage.getItem("UpgradesOwned");
-//     const ownedIds = saved ? JSON.parse(saved) : [];
-//     const ownedUpgrades = UpgradesList.filter(upgrade => ownedIds.includes(upgrade.id));
-//     console.log(ownedUpgrades);
+function ViewOwnedUpgrades() {
+    const saved = localStorage.getItem("UpgradesOwned");
+    const ownedIds = saved ? JSON.parse(saved) : [];
+    const ownedUpgrades = UpgradesList.filter(upgrade => ownedIds.includes(upgrade.id));
+    console.log(ownedUpgrades);
 
-//     const ownedDiv = document.createElement("div");
-//     ownedDiv.classList.add("OwnedUpgradesDiv");
+    const ownedDiv = document.createElement("div");
+    ownedDiv.classList.add("OwnedUpgradesDiv");
 
-//     ownedUpgrades.forEach(upgrade => {
-//         const p = document.createElement("p");
-//         p.className = "Testando"
-//         p.innerHTML = upgrade.NameUp;
-//         ownedDiv.appendChild(p);    
-//         console.log("Adicionado")
-//     });
+    ownedUpgrades.forEach(upgrade => {
+        const p = document.createElement("p");
+        p.className = "Testando"
+        p.innerHTML = upgrade.NameUp;
+        ownedDiv.appendChild(p);    
+        console.log("Adicionado")
+    });
 
 
-//     const body = document.getElementById("Body")
-//     body.appendChild(ownedDiv);
-// }
+    const body = document.body
+    body.appendChild(ownedDiv);
+}
 
 
 /* 
