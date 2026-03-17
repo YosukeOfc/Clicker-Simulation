@@ -1,3 +1,4 @@
+
 const ClickerViewer = document.getElementById("ClickerViewer")
 const UpgradesDiv = document.getElementById("Upgrades")
 const TooltipDiv = document.getElementById("Upgrade-ToolTip")
@@ -9,13 +10,6 @@ let ClickerTotal = 0
 let GanhoPorClick = 1
 
 
-// Função que atualiza o localStorage e o display dos clicks
-function AtualizarLocalStorage() {
-    ClickerViewer.innerText = `Clicks: ${ClickerTotal}`
-    localStorage.setItem("ClickerSave", ClickerTotal)
-    localStorage.setItem("UpgradesOwned", JSON.stringify(UpgradesList.filter(Ups => Ups.Owned == true).map(Ups => Ups.id))) // Mudei o save de nome para Id, para facilitar
-}
-
 // Função que reseta o jogo, apagando o progresso
 function ResetarTudo() {
     localStorage.setItem("ClickerSave", 0)
@@ -25,7 +19,14 @@ function ResetarTudo() {
     window.location.reload()
 }
 
-// Configura o jogo ao carregar, verificando os upgrades comprados e aplicando seus benefícios
+// Função que atualiza o localStorage e o display dos clicks
+function AtualizarLocalStorage() {
+    ClickerViewer.innerText = `Clicks: ${ClickerTotal}`
+    localStorage.setItem("ClickerSave", ClickerTotal)
+    localStorage.setItem("UpgradesOwned", JSON.stringify(UpgradesList.filter(Ups => Ups.Owned == true).map(Ups => Ups.id))) // Mudei o save de nome para Id, para facilitar
+}
+
+
 function ConfigGame() {
     const savedUpgrades = localStorage.getItem("UpgradesOwned");
 
@@ -44,6 +45,7 @@ function ConfigGame() {
     }
 }
 ConfigGame()
+
 
 
 // Verifica se existe um save, se sim, carrega o progresso, se não, cria um novo save
@@ -116,7 +118,6 @@ UpgradesList.forEach(el => {
     })
 })
 
-/*Deixei essa função em comentário, porque não está funcionando ainda*/
 function ViewOwnedUpgrades() {
     const saved = localStorage.getItem("UpgradesOwned");
     const ownedIds = saved ? JSON.parse(saved) : [];
@@ -134,18 +135,18 @@ function ViewOwnedUpgrades() {
         console.log("Adicionado")
     });
 
-
-    const body = document.body
-    body.appendChild(ownedDiv);
+    const RenderOwned = document.getElementById("RenderOwned")
+    RenderOwned.classList.toggle("RenderOwned")
+    RenderOwned.appendChild(ownedDiv);
 }
 
 
-/* 
-
--- DEBUGADO!
-
-Os "P" estão sendo criado no body, porem ele sai da tela, o overflow impede isso.
-Ou achar um jeito de tirar esse overflow e nao aparecer o rolar pagina, ou usar position.
-
-
-*/
+document.addEventListener("keyup", (e)=>{
+    if(e.key === "K" || e.key === "k"){
+        localStorage.setItem("ClickerSave", 0)
+        localStorage.setItem("UpgradesOwned", [])
+        localStorage.removeItem("IsaacSoundPlayed")
+    
+        window.location.reload()
+    }
+})

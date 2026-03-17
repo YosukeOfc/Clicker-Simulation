@@ -20,13 +20,16 @@
             <div class="Upgrades" id="Upgrades">
                 <!-- Aqui será renderizado os Upgrades -->
             </div>
-            <div class="Reset-Div">
-                <!-- Aqui será renderizado o botão de Reset -->
-                <button class="Reset" id="Reset" onclick="ResetarTudo()">Resetar</button>
-            </div>
-            <div class="ViewOwnedUps-Div">
-                <!-- Aqui será renderizado o botão de ver os Upgrades Possuídos -->
-                <button class="ViewOwnedUps" id="ViewOwnedUps" onclick="ViewOwnedUpgrades()">Upgrades</button>
+            <div class="specialBtn">
+                <div class="Reset-Div">
+                    <!-- Aqui será renderizado o botão de Reset -->
+                    <button class="Reset" id="Reset" onclick="ResetarTudo()">Resetar</button>
+                </div>
+                <div class="ViewOwnedUps-Div" id="ViewOwnedUps-Div">
+                    <!-- Aqui será renderizado o botão de ver os Upgrades Possuídos -->
+                    <div id="RenderOwned"> <!-- --> </div>
+                    <button class="ViewOwnedUps" id="ViewOwnedUps" onclick="ViewOwnedUpgrades()">Upgrades</button>
+                </div>
             </div>
         </div>
     </div>
@@ -38,8 +41,9 @@
         <p id="ToolTip-Cost"></p>
     </div>
 
-    <script src="./js/json.js"></script>
-    <script src="./js/script.js" defer></script>
+    
+    <script src="./js/json.js" ></script>
+    <script src="./js/main.js" defer></script>
 </body>
 
 </html>
