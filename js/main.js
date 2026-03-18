@@ -140,13 +140,13 @@ function ViewOwnedUpgrades() {
     RenderOwned.appendChild(ownedDiv);
 }
 
-
+// Função para detectar se as teclas "K" e "Space" foram pressionadas, e dar um evento a elas
 document.addEventListener("keyup", (e)=>{
     if(e.key === "K" || e.key === "k"){
-        localStorage.setItem("ClickerSave", 0)
-        localStorage.setItem("UpgradesOwned", [])
-        localStorage.removeItem("IsaacSoundPlayed")
-    
-        window.location.reload()
+        ResetarTudo();
+    }
+
+    if(e.code === "Space") {
+        EarnClicker();
     }
 })

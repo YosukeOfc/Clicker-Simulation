@@ -9,7 +9,9 @@
 
 @keyframes itemFloat {
     0% { opacity: 0; transform: translate(-50%, 0); }
+    25% { opacity: 0.5; }
     50% { opacity: 1; }
+    75% { opacity: 1; }
     100% { opacity: 0; transform: translate(-50%, -50px); }
 }
 
@@ -26,7 +28,7 @@
     left: 50%;
     top: 6%;
     transform: translate(-50%);
-    animation: itemFloat 2s ease-in-out;
+    animation: itemFloat 1s ease-in-out forwards;
 }
 
 .imga{
@@ -34,7 +36,7 @@
     top: 12%;
     left: 50%;
     transform: translateX(-50%);
-    animation: itemFloat 2s ease-in-out forwards;
+    animation: itemFloat 1s ease-in-out forwards;
 }
 
 /* Código do conteudo */

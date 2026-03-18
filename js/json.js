@@ -77,7 +77,7 @@ const UpgradesList = [
                 setTimeout(() => {
                     h1.remove()
                     imga.remove()
-                }, 1900)
+                }, 2200)
                 localStorage.setItem("IsaacSoundPlayed", "true");
             }
 
