@@ -54,20 +54,20 @@ const UpgradesList = [
 
             if (!jaTocou) {
                 const audio = new Audio('./src/audios/rebirth_item_pickup_1.mp3');
-                
+
                 const h1 = document.createElement('h1')
                 h1.className = "IsaacFont TextHealthUp2"
                 h1.innerHTML = "DAMAGE UP !" // Ou textContent
-                
+
                 const imga = document.createElement("img")
                 imga.className = "imga"
                 imga.src = "./src/image/sacred-heart.png"
                 imga.alt = "sacred heart"
                 imga.width = 75
                 imga.height = 75
-                
+
                 const body = document.body
-                
+
                 audio.play();
                 setTimeout(() => {
                     body.appendChild(h1)
@@ -110,15 +110,48 @@ const UpgradesList = [
     new Upgrades({
         NameUp: "Ana",
         Cost: 1,
-        Desc: "Aumenta +99999 por clique.",
-        EarnCookieClicker: 99999,
+        Desc: "Aumenta +10000 por clique.",
+        EarnCookieClicker: 10000,
         onBuy: () => {
             alert("Ana atingiu o nível máximo!");
 
             const body = document.body;
-            body.style.backgroundImage = "url('./src/image/bandeira-Johnny2.png')"
+            body.style.backgroundImage = "url('./src/image/bandeira-ana.png')"
         }
-    })
+    }),
+
+    new Upgrades({
+        NameUp: "Gabriel",
+        Cost: 1,
+        Desc: "Aumenta +10000 de autismo por clique.",
+        EarnCookieClicker: 0,
+        onBuy: () => {
+            GanhoPorClick -= 10000
+            alert("Vc fez cagadinha")
+        }
+    }),
+
+    new Upgrades({
+        NameUp: "Espadona",
+        Cost: 1,
+        Desc: "Emite uma expulsão.",
+        EarnCookieClicker: 0,
+        onBuy: () => {
+            GanhoPorClick -= 10000
+            alert("eita artur...")
+        }
+    }),
+
+    new Upgrades({
+        NameUp: "jjoo",
+        Cost: 1,
+        Desc: "Aumenta +10000 de autismo por clique.",
+        EarnCookieClicker: 0,
+        onBuy: () => {
+            GanhoPorClick -= 10000
+            alert("Vc fez cagadinha")
+        }
+    }),
 ];
 
 
