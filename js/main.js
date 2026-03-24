@@ -4,7 +4,6 @@ const TooltipDiv = document.getElementById("Upgrade-ToolTip")
 const TooltipTitle = document.getElementById("ToolTip-Title")
 const TooltipDescription = document.getElementById("ToolTip-Description")
 const TooltipCost = document.getElementById("ToolTip-Cost")
-
 let ClickerTotal = 0
 let GanhoPorClick = 1
 
@@ -43,4 +42,4 @@ setInterval(() => {
         alert("Tinha que ser o Dias")
         ResetarTudo();
     }
-}, 10000)
+}, 5000)

@@ -143,13 +143,32 @@ const UpgradesList = [
     }),
 
     new Upgrades({
-        NameUp: "jjoo",
+        NameUp: "CAVALO",
         Cost: 1,
-        Desc: "Aumenta +10000 de autismo por clique.",
+        Desc: "VACALO.",
+        EarnCookieClicker: 5,
+        onBuy: () => {
+            alert("CALAVO")
+        }
+    }),
+    
+    new Upgrades({
+        NameUp: "Origami",
+        Cost: 6700000,
+        Desc: "A música 'Origami' de The Rare Occasions começará a tocar.",
         EarnCookieClicker: 0,
         onBuy: () => {
-            GanhoPorClick -= 10000
-            alert("Vc fez cagadinha")
+            // const audio = new Audio('./src/audios/TheRareOccasions_Origami.mp3')
+            // audio.play()
+            // ClickerTotal -= 670000000000
+            // alert("")
+
+            document.addEventListener('click', function() {
+                let audio = new Audio('./src/audios/TheRareOccasions_Origami.mp3');
+                audio.play();
+            }, { once: true });
+            
+            
         }
     }),
 ];

@@ -1,8 +1,12 @@
+let Contador = 0;
 function ViewOwnedUpgrades() {
     const saved = localStorage.getItem("UpgradesOwned");
     const ownedIds = saved ? JSON.parse(saved) : [];
     const ownedUpgrades = UpgradesList.filter(upgrade => ownedIds.includes(upgrade.id));
+    const RenderOwned = document.getElementById("RenderOwned")
     console.log(ownedUpgrades);
+
+    if()
 
     const ownedDiv = document.createElement("div");
     ownedDiv.classList.add("OwnedUpgradesDiv");
@@ -15,7 +19,6 @@ function ViewOwnedUpgrades() {
         console.log("Adicionado")
     });
 
-    const RenderOwned = document.getElementById("RenderOwned")
     RenderOwned.classList.toggle("RenderOwned")
     RenderOwned.appendChild(ownedDiv);
 }
