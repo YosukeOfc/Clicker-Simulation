@@ -6,8 +6,6 @@ function ViewOwnedUpgrades() {
     const RenderOwned = document.getElementById("RenderOwned")
     console.log(ownedUpgrades);
 
-    if()
-
     const ownedDiv = document.createElement("div");
     ownedDiv.classList.add("OwnedUpgradesDiv");
 

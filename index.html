@@ -8,46 +8,53 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
-    <div class="container">
+<body class="modoEscuro">
+    <main>
 
-        <div class="conteudo">
-            <div class="information">
-                <!-- Aqui será renderizado o visual do clicker -->
-                <p id="ClickerViewer" class="ClickerViewer"></p>
-                <button class="ClickHere" id="ClickHere" onclick="EarnClicker()">Clique em mim</button>
-            </div>
-            <div class="Upgrades" id="Upgrades">
-                <!-- Aqui será renderizado os Upgrades -->
-            </div>
-            <div class="specialBtn">
-                <div class="Reset-Div">
-                    <!-- Aqui será renderizado o botão de Reset -->
-                    <button class="Reset" id="Reset" onclick="ResetarTudo()">Resetar</button>
+        <div class="container">
+
+            <div class="conteudo">
+                <div class="information">
+                    <!-- Aqui será renderizado o visual do clicker -->
+                    <p id="ClickerViewer" class="ClickerViewer"></p>
+                    <button class="ClickHere" id="ClickHere" onclick="EarnClicker()">Clique em mim</button>
                 </div>
-                <div class="ViewOwnedUps-Div" id="ViewOwnedUps-Div">
-                    <!-- Aqui será renderizado o botão de ver os Upgrades Possuídos -->
-                    <div id="RenderOwned"> <!-- --> </div>
-                    <button class="ViewOwnedUps" id="ViewOwnedUps" onclick="ViewOwnedUpgrades()">Upgrades</button>
+                <div class="Upgrades" id="Upgrades">
+                    <!-- Aqui será renderizado os Upgrades -->
+                </div>
+                <div class="specialBtn">
+                    <div class="Reset-Div">
+                        <!-- Aqui será renderizado o botão de Reset -->
+                        <button class="Reset" id="Reset" onclick="ResetarTudo()">Resetar</button>
+                    </div>
+                    <div class="ViewOwnedUps-Div" id="ViewOwnedUps-Div">
+                        <!-- Aqui será renderizado o botão de ver os Upgrades Possuídos -->
+                        <div id="RenderOwned"> <!-- --> </div>
+                        <button class="ViewOwnedUps" id="ViewOwnedUps" onclick="ViewOwnedUpgrades()">Upgrades</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="Upgrades-ToolTips-Div" id="Upgrade-ToolTip" style="display: none; position: absolute;">
-        <!-- Aqui será renderizado o ToolTip/Modal -->
-        <h3 id="ToolTip-Title"></h3>
-        <p id="ToolTip-Description"></p>
-        <p id="ToolTip-Cost"></p>
-    </div>
+        <div class="Upgrades-ToolTips-Div" id="Upgrade-ToolTip" style="display: none; position: absolute;">
+            <!-- Aqui será renderizado o ToolTip/Modal -->
+            <h3 id="ToolTip-Title"></h3>
+            <p id="ToolTip-Description"></p>
+            <p id="ToolTip-Cost"></p>
+        </div>
 
-    
-    <script src="./js/json.js" ></script>
-    <script src="./js/main.js"></script>
-    <script src="./js/config.js"></script>
-    <script src="./js/resetarTudo.js"></script>
-    <script src="./js/Render/RenderUpgrades.js"></script>
-    <script src="./js/Render/RenderOwnedUps.js"></script>
+    </main>
+
+    <footer>
+        <button id="btn-mudarModo" onclick="mudarModo()">Modo escuro</button>
+    </footer>
+
 </body>
+<script src="./js/json.js"></script>
+<script src="./js/main.js"></script>
+<script src="./js/config.js"></script>
+<script src="./js/resetarTudo.js"></script>
+<script src="./js/Render/RenderUpgrades.js"></script>
+<script src="./js/Render/RenderOwnedUps.js"></script>
 
 </html>

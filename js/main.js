@@ -43,3 +43,23 @@ setInterval(() => {
         ResetarTudo();
     }
 }, 5000)
+
+
+
+// Função para mudar modo claro e escuro
+function mudarModo() {
+    //console.log("1")
+
+    let body = document.querySelector("body")
+    let modo = document.body.className
+
+    //console.log("2")
+
+    if(modo == "modoEscuro") {
+        body.classList.replace("modoEscuro", "modoClaro")
+    } else{
+        body.classList.replace("modoClaro", "modoEscuro")
+    }
+
+    //console.log("3")
+}
